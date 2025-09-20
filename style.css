@@ -1,43 +1,88 @@
-/* variaveis-globais-e-reset */
+/*
+=================================================================
+    FOLHA DE ESTILOS PRINCIPAL - DANIEL NAKAKURA
+=================================================================
+    0. Variáveis Globais (Cores e Fontes)
+    1. Reset e Estilos Globais
+    2. Efeito de Animação (Fade-in ao Rolar)
+    3. Cabeçalho e Navegação (Header)
+    4. Menu Mobile (Hamburguer)
+    5. Seção Principal (Hero)
+    6. Estilos de Conteúdo Geral
+    7. Rodapé (Footer)
+    8. Modo Escuro (Dark Mode)
+    9. Estilos para Desktop (Responsividade)
+=================================================================
+*/
+
+
+/* ===== 0. Variáveis Globais (Cores e Fontes) ===== */
+/* Aqui definimos as cores e fontes principais do site em um só lugar.
+   Se quisermos mudar o tema do site no futuro, basta alterar os valores aqui. */
 :root {
-    --primary-color: #3a5a78; /* azul-acinzentado-escuro */
-    --secondary-color: #6c8a9b; /* azul-acinzentado-claro */
-    --background-color: #f4f4f4; /* cinza-muito-claro */
-    --light-beige: #e8d8c4; /* bege-claro */
+    /* Cores do Tema Claro (Padrão) */
+    --primary-color: #3a5a78;
+    /* azul-acinzentado-escuro */
+    --secondary-color: #6c8a9b;
+    /* azul-acinzentado-claro */
+    --background-color: #f4f4f4;
+    /* cinza-muito-claro */
+    --light-beige: #e8d8c4;
+    /* bege-claro */
     --text-color: #333333;
+    /* cor principal do texto */
     --white-color: #ffffff;
+    /* branco, usado em fundos de cards e header */
+
+    /* Fontes */
     --font-primary: 'Lora', serif;
+    /* fonte para títulos */
     --font-secondary: 'Inter', sans-serif;
+    /* fonte para textos corridos */
 }
 
+
+/* ===== 1. Reset e Estilos Globais ===== */
+
+/* O seletor universal (*) remove margens e preenchimentos padrão do navegador.
+   'box-sizing: border-box' torna o trabalho com layouts muito mais fácil e previsível. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Habilita a rolagem suave quando clicamos em links internos (ex: <a href="#sobre">). */
 html {
     scroll-behavior: smooth;
 }
 
+/* Estilos base para todo o corpo do documento. */
 body {
     font-family: var(--font-secondary);
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    /* Melhora a legibilidade dos textos. */
 }
 
+/* Classe 'container' para centralizar o conteúdo e limitar a largura máxima em telas grandes. */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
+    /* O 'auto' nas laterais centraliza o elemento. */
 }
 
+/* Classe 'section' para aplicar um espaçamento vertical padrão entre as seções. */
 .section {
     padding: 60px 0;
 }
 
-h1, h2, h3 {
+/* Estilos base para os títulos. */
+h1,
+h2,
+h3 {
     font-family: var(--font-primary);
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -52,26 +97,35 @@ h2 {
     text-align: center;
 }
 
+/* Garante que as imagens sejam responsivas e não quebrem o layout. */
 img {
     max-width: 100%;
     display: block;
+    /* Remove um pequeno espaço extra que os navegadores adicionam abaixo das imagens. */
     border-radius: 8px;
 }
 
-/* efeito-de-revelar-ao-rolar */
+
+/* ===== 2. Efeito de Animação (Fade-in ao Rolar) ===== */
+
+/* Estado inicial (escondido) dos elementos que terão a animação. */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
+    /* Começa um pouco abaixo da sua posição final. */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Classe '.visible' é adicionada via JavaScript quando o elemento aparece na tela, ativando a transição. */
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 
-/* header-e-navegacao */
+/* ===== 3. Cabeçalho e Navegação (Header) ===== */
+
+/* Estiliza o cabeçalho, fixando-o no topo da página. */
 .header {
     background-color: var(--white-color);
     padding: 1rem 0;
@@ -79,15 +133,19 @@ img {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Garante que o header fique acima de outros conteúdos. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para dar profundidade. */
 }
 
+/* Usa Flexbox para alinhar o logo à esquerda e a navegação à direita. */
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Estilo do logo. */
 .logo {
     font-family: var(--font-primary);
     font-size: 1.5rem;
@@ -96,36 +154,10 @@ img {
     font-weight: 700;
 }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--white-color);
-    align-items: center;
-    justify-content: center;
-    transition: left 0.3s ease-in-out;
-}
 
-.nav-list.active {
-    left: 0;
-}
+/* ===== 4. Menu Mobile (Hamburguer) ===== */
 
-.nav-list li {
-    margin: 2rem 0;
-}
-
-.nav-list a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
+/* O botão do menu hambúrguer, visível apenas em telas pequenas. */
 .hamburger {
     display: block;
     background: none;
@@ -134,32 +166,127 @@ img {
     width: 30px;
     height: 25px;
     position: relative;
-    z-index: 1001; /* acima-do-menu */
+    z-index: 1002;
 }
 
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
+/* As 3 barrinhas do ícone de hambúrguer. */
+.hamburger .bar {
+    display: block;
     width: 100%;
     height: 3px;
     background-color: var(--primary-color);
-    transition: all 0.3s;
-    left: 0;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
 }
 
-.hamburger::before { top: 5px; }
-.hamburger::after { bottom: 5px; }
+.hamburger .bar:nth-child(1) {
+    top: 0;
+}
 
-/* hero-section */
+.hamburger .bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .bar:nth-child(3) {
+    bottom: 0;
+}
+
+/* Animação do Hambúrguer para um "X" quando o menu está ativo. */
+.hamburger.active .bar:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+    /* A barra do meio some. */
+}
+
+.hamburger.active .bar:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/* A lista de links do menu (o menu suspenso em si). */
+.nav-list {
+    list-style: none;
+    position: absolute;
+    /* Posicionado em relação ao header. */
+    top: calc(100% + 10px);
+    /* Aparece abaixo do header. */
+    right: 0;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 250px;
+    padding: 1rem;
+    z-index: 1001;
+
+    /* Estado inicial escondido, para a animação. */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    /* Impede cliques no menu escondido. */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Classe '.active' é adicionada via JS para mostrar o menu. */
+.nav-list.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Itens da lista do menu mobile. */
+.nav-list li {
+    width: 100%;
+}
+
+/* Regra para a linha divisória entre os links. */
+.nav-list li:not(:last-child) {
+    border-bottom: 1px solid var(--background-color);
+}
+
+/* Regra APENAS para o último item (que contém o botão) */
+.nav-list li:last-child {
+    /* O espaçamento que já tinha funcionado: */
+    margin-top: 8px;
+    /* Centraliza o botão dentro do item da lista: */
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0; /* Adiciona um respiro vertical */
+}
+
+/* Links dentro do menu mobile. */
+.nav-list a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.nav-list a:hover {
+    background-color: #f8f8f8;
+}
+
+
+/* ===== 5. Seção Principal (Hero) ===== */
+
+/* A primeira seção visível do site. */
 .hero {
-    padding-top: 150px; /* espaco-para-header-fixo */
+    padding-top: 150px;
+    /* Espaço para não ficar escondido atrás do header fixo. */
     text-align: center;
 }
 
 .hero .container {
     display: flex;
     flex-direction: column;
+    /* Em mobile, os itens ficam empilhados. */
     align-items: center;
     gap: 40px;
 }
@@ -172,10 +299,13 @@ img {
     width: 250px;
     height: 250px;
     object-fit: cover;
+    /* Garante que a imagem preencha o espaço sem distorcer. */
     border-radius: 50%;
+    /* Deixa a imagem redonda. */
     border: 5px solid var(--light-beige);
 }
 
+/* Botão principal de chamada para ação. */
 .cta-button {
     display: inline-block;
     margin-top: 20px;
@@ -184,6 +314,7 @@ img {
     color: var(--white-color);
     text-decoration: none;
     border-radius: 50px;
+    /* Bordas totalmente arredondadas. */
     font-weight: 700;
     transition: background-color 0.3s;
 }
@@ -192,26 +323,31 @@ img {
     background-color: var(--secondary-color);
 }
 
-/* secoes-de-conteudo */
+
+/* ===== 6. Estilos de Conteúdo Geral ===== */
+
+/* Classe para centralizar seções com muito texto. */
 .content-section {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-/* servicos-cards */
+/* Container para os cards de serviço. */
 .cards-container {
     display: flex;
     flex-direction: column;
+    /* Empilhados no mobile. */
     gap: 20px;
     margin-top: 40px;
 }
 
+/* Estilo individual de cada card. */
 .card {
     background-color: var(--white-color);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
@@ -219,7 +355,9 @@ img {
     color: var(--secondary-color);
 }
 
-/* footer */
+
+/* ===== 7. Rodapé (Footer) ===== */
+
 .footer {
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -246,33 +384,139 @@ img {
 }
 
 
-/* estilos-para-desktop-a-partir-de-768px */
-@media (min-width: 768px) {
-    h1 { font-size: 3.5rem; }
-    h2 { font-size: 2.5rem; }
+/* ===== 8. Modo Escuro (Dark Mode) ===== */
 
+/* Quando a tag <html> tem a classe 'dark-mode', estas variáveis substituem as padrão. */
+html.dark-mode {
+    --primary-color: #8ab4f8;
+    /* Um azul mais claro e vibrante */
+    --secondary-color: #6c8a9b;
+    /* Mantido, funciona bem */
+    --background-color: #1a202c;
+    /* Azul-escuro, quase preto */
+    --light-beige: #3e4c5b;
+    /* Um tom escuro para bordas e detalhes */
+    --text-color: #e2e8f0;
+    /* Cinza bem claro, quase branco */
+    --white-color: #2d3748;
+    /* Cor de fundo para os cards e header */
+}
+
+/* Estilo do botão que alterna entre os temas. */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+    /* O ícone SVG herda esta cor. */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--light-beige);
+}
+
+/* Tamanho dos ícones SVG dentro do botão. */
+.theme-toggle .icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Lógica para mostrar o ícone de SOL ou LUA dependendo do tema. */
+/* No tema escuro, mostramos o sol e escondemos a lua. */
+.dark-mode .theme-toggle .icon-sun {
+    display: block;
+}
+
+.dark-mode .theme-toggle .icon-moon {
+    display: none;
+}
+
+/* Por padrão (tema claro), mostramos a lua e escondemos o sol. */
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+.theme-toggle .icon-moon {
+    display: block;
+}
+
+
+/* ===== 9. Estilos para Desktop (Responsividade) ===== */
+/* Este bloco aplica estilos apenas em telas com 768px de largura ou mais. */
+
+@media (min-width: 768px) {
+
+    /* Ajusta o tamanho das fontes para telas maiores. */
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Esconde o menu hambúrguer no desktop. */
     .hamburger {
         display: none;
     }
 
+    /* Reseta os estilos do menu para o layout de desktop. */
     .nav-list {
-        position: static;
+        display: flex;
+        align-items: center;
         flex-direction: row;
-        height: auto;
+        /* Alinha os itens na horizontal. */
+        position: static;
         width: auto;
+        height: auto;
         background-color: transparent;
-        left: 0;
-    }
-    
-    .nav-list li {
-        margin: 0 1rem;
+        box-shadow: none;
+        padding: 0;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        transition: none;
     }
 
+    /* Estilo dos itens da lista no desktop. */
+    .nav-list li {
+        margin: 0 0 0 1rem;
+        /* Margem apenas à esquerda para espaçamento. */
+        width: auto;
+        border: none;
+    }
+
+    /* Adiciona um espaço acima do último item (o botão de tema) no menu mobile */
+    .nav-list li:last-child {
+        margin-top: 8px;
+        border-top: 1px solid var(--background-color);
+        /* Adiciona a linha de volta */
+    }
+
+    .nav-list li:not(:last-child) {
+        border-bottom: none;
+    }
+
+    /* Estilo dos links no desktop. */
     .nav-list a {
+        display: inline-block;
+        padding: 0;
         font-size: 1rem;
         font-weight: 400;
     }
 
+    .nav-list a:hover {
+        background-color: transparent;
+    }
+
+    /* Altera o layout da seção Hero para horizontal. */
     .hero .container {
         flex-direction: row;
         text-align: left;
@@ -281,10 +525,12 @@ img {
 
     .hero-text {
         flex: 1;
+        /* Permite que o texto ocupe o espaço disponível. */
     }
 
     .hero-image {
         flex-basis: 350px;
+        /* Define um tamanho base para a imagem. */
     }
 
     .hero-image img {
@@ -292,10 +538,12 @@ img {
         height: 350px;
     }
 
+    /* Alinha o texto das seções à esquerda. */
     .content-section {
         text-align: left;
     }
-    
+
+    /* Altera o layout dos cards para horizontal. */
     .cards-container {
         flex-direction: row;
         justify-content: space-between;
@@ -303,8 +551,10 @@ img {
 
     .card {
         width: calc(33.333% - 15px);
+        /* Distribui os cards em 3 colunas com um pequeno espaço. */
     }
 
+    /* Altera o layout do rodapé para horizontal. */
     .footer .container {
         flex-direction: row;
         justify-content: space-between;

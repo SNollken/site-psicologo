@@ -17,20 +17,36 @@
 
 
 
-    <header class="header">
-        <div class="container">
-            <a href="#inicio" class="logo">Daniel Nakakura</a>
-            <nav class="nav">
-                <button class="hamburger"></button>
-                <ul class="nav-list">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#agendamento">Agendar</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header class="header">
+    <div class="container">
+        <a href="#inicio" class="logo">Daniel Nakakura</a>
+        <nav class="nav">
+            <button class="hamburger" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#agendamento">Agendar</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" title="Alternar tema">
+                        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.9001 2.30719C19.7392 1.8976 19.1616 1.8976 19.0007 2.30719L18.5703 3.40247C18.5212 3.52752 18.4226 3.62651 18.298 3.67583L17.2067 4.1078C16.7986 4.26934 16.7986 4.849 17.2067 5.01054L18.298 5.44252C18.4226 5.49184 18.5212 5.59082 18.5703 5.71587L19.0007 6.81115C19.1616 7.22074 19.7392 7.22074 19.9001 6.81116L20.3305 5.71587C20.3796 5.59082 20.4782 5.49184 20.6028 5.44252L21.6941 5.01054C22.1022 4.849 22.1022 4.26934 21.6941 4.1078L20.6028 3.67583C20.4782 3.62651 20.3796 3.52752 20.3305 3.40247L19.9001 2.30719Z"/>
+                            <path d="M16.0328 8.12967C15.8718 7.72009 15.2943 7.72009 15.1333 8.12967L14.9764 8.52902C14.9273 8.65407 14.8287 8.75305 14.7041 8.80237L14.3062 8.95987C13.8981 9.12141 13.8981 9.70107 14.3062 9.86261L14.7041 10.0201C14.8287 10.0694 14.9273 10.1684 14.9764 10.2935L15.1333 10.6928C15.2943 11.1024 15.8718 11.1024 16.0328 10.6928L16.1897 10.2935C16.2388 10.1684 16.3374 10.0694 16.462 10.0201L16.8599 9.86261C17.268 9.70107 17.268 9.12141 16.8599 8.95987L16.462 8.80237C16.3374 8.75305 16.2388 8.65407 16.1897 8.52902L16.0328 8.12967Z"/>
+                            <path d="M21.25 12C21.25 17.1086 17.1086 21.25 12 21.25V22.75C17.9371 22.75 22.75 17.9371 22.75 12H21.25ZM12 21.25C6.89137 21.25 2.75 17.1086 2.75 12H1.25C1.25 17.9371 6.06294 22.75 12 22.75V21.25ZM2.75 12C2.75 6.89137 6.89137 2.75 12 2.75V1.25C6.06294 1.25 1.25 6.06294 1.25 12H2.75ZM15.5 14.25C12.3244 14.25 9.75 11.6756 9.75 8.5H8.25C8.25 12.5041 11.4959 15.75 15.5 15.75V14.25ZM20.4253 11.469C19.4172 13.1373 17.5882 14.25 15.5 14.25V15.75C18.1349 15.75 20.4407 14.3439 21.7092 12.2447L20.4253 11.469ZM9.75 8.5C9.75 6.41182 10.8627 4.5828 12.531 3.57467L11.7553 2.29085C9.65609 3.5593 8.25 5.86509 8.25 8.5H9.75ZM12 2.75C11.9115 2.75 11.8077 2.71008 11.7324 2.63168C11.6686 2.56527 11.6538 2.50244 11.6503 2.47703C11.6461 2.44587 11.6482 2.35557 11.7553 2.29085L12.531 3.57467C13.0342 3.27065 13.196 2.71398 13.1368 2.27627C13.0754 1.82126 12.7166 1.25 12 1.25V2.75ZM21.7092 12.2447C21.6444 12.3518 21.5541 12.3539 21.523 12.3497C21.4976 12.3462 21.4347 12.3314 21.3683 12.2676C21.2899 12.1923 21.25 12.0885 21.25 12H22.75C22.75 11.2834 22.1787 10.9246 21.7237 10.8632C21.286 10.804 20.7293 10.9658 20.4253 11.469L21.7092 12.2447Z"/>
+                        </svg>
+                        <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                            <path d="M12 2.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0112 2.75zM12 18.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5a.75.75 0 01.75-.75zM5.47 5.47a.75.75 0 011.06 0l1.06 1.06a.75.75 0 01-1.06 1.06L5.47 6.53a.75.75 0 010-1.06zM16.41 16.41a.75.75 0 011.06 0l1.06 1.06a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zM2.75 12a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM18.75 12a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM6.53 16.41a.75.75 0 010 1.06l-1.06 1.06a.75.75 0 01-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zM17.47 5.47a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zM12 7a5 5 0 100 10 5 5 0 000-10z"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <main>
         <section id="inicio" class="hero section">
@@ -38,9 +54,9 @@
                 <div class="hero-text">
                     <h1 class="fade-in">Cuide da sua saúde mental.</h1>
                     <p class="fade-in">inserir texto do whatsapp</p>
-                    <a id="Setmore_button_iframe" href="https://nakakura.setmore.com" class="cta-button fade-in">
-    Agende sua Consulta
-</a>
+                    <a href="#agendamento" class="cta-button fade-in">
+                        Agende sua Consulta
+                    </a>
                 </div>
                 <div class="hero-image fade-in">
                     <img src="https://placehold.co/400x400/E8D8C4/444444?text=Psicólogo"
@@ -90,12 +106,43 @@
         <section id="agendamento" class="section">
             <div class="container content-section fade-in">
                 <h2>Marque sua Consulta</h2>
-                <p>Pronto para dar o primeiro passo? Clique no botão abaixo para ver meus horários disponíveis e agendar
-                    sua consulta de forma rápida e segura.</p>
+                <p>Veja meus horários disponíveis abaixo e agende sua consulta de forma rápida e segura diretamente por
+                    aqui.</p>
 
-                <a id="Setmore_button_iframe_2" href="https://nakakura.setmore.com" class="cta-button">
-                    Ver Horários e Agendar
-                </a>
+                <script src="//widget.simplybook.me/v2/widget/widget.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    var widget = new SimplybookWidget({
+                        "widget_type": "iframe",
+                        "url": "https:\/\/danielnakakura.simplybook.me",
+                        "theme": "emeri",
+                        "theme_settings": {
+                            "timeline_hide_unavailable": "1",
+                            "hide_past_days": "0",
+                            "timeline_show_end_time": "0",
+                            "timeline_modern_display": "as_slots",
+                            "sb_base_color": "#b2846f",
+                            "display_item_mode": "block",
+                            "booking_nav_bg_color": "#ffffff",
+                            "body_bg_color": "#fafafa",
+                            "sb_review_image": "",
+                            "dark_font_color": "#47413e",
+                            "light_font_color": "#ffffff",
+                            "btn_color_1": "#f5b376",
+                            "sb_company_label_color": "#ffffff",
+                            "hide_img_mode": "1",
+                            "sb_busy": "#c7b3b3",
+                            "sb_available": "#ebddde"
+                        },
+                        "timeline": "modern",
+                        "datepicker": "top_calendar",
+                        "is_rtl": false,
+                        "app_config": {
+                            "clear_session": 0,
+                            "allow_switch_to_ada": 0,
+                            "predefined": []
+                        }
+                    });
+                </script>
             </div>
         </section>
     </main>
@@ -113,9 +160,7 @@
         </div>
     </footer>
 
-    <script id="setmore_script" type="text/javascript"
-        src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script>
-        <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script>
+
     <script src="script.js" defer></script>
 </body>
 
