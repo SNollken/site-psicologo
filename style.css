@@ -449,6 +449,23 @@ html.dark-mode {
 
 
 /* ===== 9. Estilos para Desktop (Responsividade) ===== */
+/* Estilo para o link alternativo de agendamento */
+.link-agendamento-externo {
+    text-align: center;
+    margin-top: 25px; /* Adiciona um espaço entre o widget e o link */
+    font-size: 0.9rem; /* Deixa o texto um pouco menor */
+    color: var(--secondary-color); /* Usa uma cor de texto mais suave */
+}
+
+.link-agendamento-externo a {
+    color: var(--primary-color); /* Cor de destaque para o link */
+    font-weight: 700; /* Deixa o link em negrito para ser mais visível */
+    text-decoration: underline;
+}
+
+.link-agendamento-externo a:hover {
+    text-decoration: none; /* Efeito simples ao passar o mouse */
+}
 /* Este bloco aplica estilos apenas em telas com 768px de largura ou mais. */
 
 @media (min-width: 768px) {
